@@ -2,12 +2,16 @@ const express = require("express");
 const { ApplicationRouter } = require("./routes/application/application.route");
 const { AuthRouter } = require("./routes/auth/auth.route");
 const { JobRouter } = require("./routes/jobs/jobs.route");
+const cors = require("cors");
 
 const app = express();
 
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// cors
+app.use(cors());
 
 // routes
 app.use("/auth", AuthRouter);

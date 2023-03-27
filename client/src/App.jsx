@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Hrlogin from "./components/auth/login/Hrlogin";
+import Nav from "./components/Nav";
+import Applyjob from "./components/applicant/Applyjob";
+import Joblist from "./components/applicant/Joblist";
+import Jobinfo from "./components/applicant/Jobinfo";
+import Post_job from "./components/hr/screens/Post_job";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="">
+      {/* <Nav /> */}
+      {/* <Hrlogin /> */}
+      {/* <Applyjob jobrole="MERN STACK Developer " /> */}
+      {/* <Joblist /> */}
+      {/* <Jobinfo id="64219f5127bbf279efb97491" /> */}
+      <Post_job />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
