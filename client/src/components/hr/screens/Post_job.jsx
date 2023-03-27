@@ -30,8 +30,10 @@ function Post_job() {
     };
     console.log(formData);
 
-    console.log(import.meta.env.SERVER_URL);
-    const res = await axios.post("http://localhost:8000/job", formData);
+    const res = await axios.post(
+      `${import.meta.env.VITE_SERVER_URL}/job`,
+      formData
+    );
 
     console.log(res.data);
   };
