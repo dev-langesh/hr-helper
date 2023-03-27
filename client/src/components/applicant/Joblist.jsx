@@ -1,81 +1,41 @@
-import React, { useState } from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-const res = {
-  message: "all active jobs",
-  data: [
-    {
-      _id: "64219f5127bbf279efb97491",
-      title: "MERN stack developer",
-      description: "desc",
-      level: "beginer",
-      job_type: "full time",
-      skills: ["REACT", "NODE.JS"],
-      salary_per_anum: 200000,
-      experience: 3,
-      required_employees: 50,
-      status: "active",
-      __v: 0,
-    },
-    {
-      _id: "64219f9ceff1d30087b079cd",
-      title: "Python developer",
-      description: "desc",
-      level: "beginer",
-      job_type: "full time",
-      skills: ["FLASK", "DJANGO"],
-      salary_per_anum: 200000,
-      experience: 5,
-      required_employees: 100,
-      status: "active",
-      __v: 0,
-    },
-  ],
-};
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Joblist = () => {
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    async function get() {
+      const req = await axios.get(`${import.meta.env.VITE_SERVER_URL}/job`);
+
+      setState(req.data.data);
+    }
+
+    get();
+  }, []);
+
   return (
-    <div className="p-5 bg-blue-200">
+    <div className="p-5 bg-blue-100 h-screen">
       <div>
         <h1 className="text-3xl font-bold ">Active Jobs Available Now</h1>
       </div>
 
       <div className="my-5">
-        {res.data.map((n) => {
-          return (
-            <div>
-              <Accordion className="my-2">
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography className="text-red-600 fontset">
-                    <h1 className="text-2xl">{n.title}</h1>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    <h1 className="text-2xl">
-                      <span className="fontset">Description :</span>{" "}
-                      {n.description}
-                    </h1>
-                  </Typography>
-                  <button className="mt-4 bttng font-bold text-white py-1 px-3 rounded-md">
-                    View Details
-                  </button>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-          );
+        {state.map((job) => {
+          return <Card title={job.title} description={job.description} />;
         })}
       </div>
     </div>
   );
 };
+
+function Card({ title, description }) {
+  return (
+    <div className="shadow-lg rounded-none p-3 bg-white hover:cursor-pointer">
+      <h1 className="font-bold text-xl">{title}</h1>
+      <p className="text-sm text-slate-500">{description}</p>
+    </div>
+  );
+}
 
 export default Joblist;

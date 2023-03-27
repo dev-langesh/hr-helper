@@ -12,9 +12,9 @@ function App() {
   return (
     <div className="">
       {/* <Nav /> */}
-      <Hrlogin />
+      {/* <Hrlogin /> */}
       {/* <Applyjob jobrole="MERN STACK Developer " /> */}
-      {/* <Joblist /> */}
+      <Joblist />
       {/* <Jobinfo id="64219f5127bbf279efb97491" /> */}
       {/* <Post_job /> */}
     </div>
