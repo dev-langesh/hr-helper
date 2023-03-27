@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { postJob } = require("./jobs.controller");
+const { postJob, getActiveJobs } = require("./jobs.controller");
 
-router.post("/", postJob);
+router.route("/").get(getActiveJobs).post(postJob);
 
 module.exports = { JobRouter: router };
