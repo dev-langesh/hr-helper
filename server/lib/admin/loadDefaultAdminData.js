@@ -7,6 +7,7 @@ async function loadDefaultAdminData() {
     const admin = await Admin.findOne({});
 
     if (!admin) {
+      // shallow copy
       const adminDataCopy = { ...defaultAdminData };
 
       // hashing password
@@ -15,7 +16,7 @@ async function loadDefaultAdminData() {
       adminDataCopy.password = hashedPassword;
 
       // updating to db
-      await Admin.create(defaultAdminData);
+      await Admin.create(adminDataCopy);
 
       console.log("loaded admin data");
     }
