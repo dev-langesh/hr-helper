@@ -1,4 +1,4 @@
-const { Job, Job } = require("../../../model/job.model");
+const { Job } = require("../../../model/job.model");
 
 // POST /job
 async function postJob(req, res) {
@@ -35,4 +35,4 @@ async function getJob(req, res) {
   }
 }
 
-module.exports = { postJob, getActiveJobs };
+module.exports = { postJob, getActiveJobs, getJob };
