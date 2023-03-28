@@ -57,8 +57,6 @@ async function verifyOtp(req, res) {
 
     const rec = await Otp.findOneAndDelete({ email, otp });
 
-    console.log(rec);
-
     if (!rec) {
       res.json({ error: "Invalid credentials" });
     }
