@@ -14,6 +14,8 @@ const Applyjob = (props) => {
   });
   const [otpStatus, setOtpStatus] = useState("Send Otp");
 
+  const [loading, setLoading] = useState(false);
+
   const ref = useRef(null);
 
   const { job_id } = useParams();
@@ -66,6 +68,8 @@ const Applyjob = (props) => {
     if (ref.current) {
       const formData = new FormData(ref.current);
 
+      setLoading(true);
+
       formData.append("job_id", job_id);
       formData.append("verified_email", sendInfo.verified_email);
 
@@ -77,6 +81,8 @@ const Applyjob = (props) => {
       );
 
       console.log(req.data);
+
+      setLoading(false);
 
       if (!req.data.error) {
         window.location = "/personality-test";
@@ -173,29 +179,14 @@ const Applyjob = (props) => {
           />
         </div>
 
-        {/* <iframe
-          src="https://impira-docquery.hf.space"
-          frameborder="0"
-          width="850"
-          height="450"
-        ></iframe> */}
-
         <div className="mt-3">
-          {/* <button
-            onClick={() => {
-              console.log(sendInfo);
-            }}
-            className=" py-1 text-white w-full font-bold rounded-md"
-          >
-            Apply
-          </button> */}
           <button
             onClick={() => {
               console.log(sendInfo);
             }}
             className=" py-2 px-3 hover:ring  bg-indigo-500 text-white font-bold w-full"
           >
-            Submit
+            {loading ? "Loading..." : "Apply"}
           </button>
         </div>
       </form>

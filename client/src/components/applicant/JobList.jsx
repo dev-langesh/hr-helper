@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const JobList = () => {
+const JobList = (props) => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,9 @@ const JobList = () => {
   return (
     <div className="p-5 bg-gray-200 h-screen ">
       <div>
-        <h1 className="text-3xl font-bold ">Active Jobs Available Now</h1>
+        <h1 className="text-2xl font-bold text-gray-700 ">
+          Active Jobs Available Now
+        </h1>
       </div>
 
       <div className="my-5 space-y-4">
@@ -37,6 +39,7 @@ const JobList = () => {
               salary_per_anum={job.salary_per_anum}
               experience={job.experience}
               required_employees={job.required_employees}
+              mode={props.mode}
             />
           );
         })}
@@ -55,6 +58,7 @@ function Card({
   salary_per_anum,
   experience,
   required_employees,
+  mode,
 }) {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -63,7 +67,11 @@ function Card({
   };
 
   const handleApply = () => {
-    window.location.href = `/Applyjob/${id}`;
+    if (mode === "hr") {
+      window.location.href = `/applications/${id}`;
+    } else {
+      window.location.href = `/Applyjob/${id}`;
+    }
   };
 
   return (
@@ -72,7 +80,7 @@ function Card({
       onClick={toggleDetails}
     >
       <div className="flex justify-between">
-        <h1 className="font-bold text-2xl">{title}</h1>
+        <h1 className="font-bold text-xl text-gray-700">{title}</h1>
       </div>
       {!showDetails && (
         <p className="text-sm py-2 text-gray-500">{description}</p>
@@ -98,7 +106,7 @@ function Card({
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
             onClick={handleApply}
           >
-            Apply Now
+            {mode === "hr" ? "Show Applications" : "Apply Now"}
           </button>
         </div>
       )}
