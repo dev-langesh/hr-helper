@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Applyjob = (props) => {
   const [sendInfo, setInfo] = useState({
@@ -8,10 +9,32 @@ const Applyjob = (props) => {
     otp: "",
     verified_email: false,
     phone: "",
+    job_title: "",
+    job_id: "",
   });
   const [otpStatus, setOtpStatus] = useState("Send Otp");
 
   const ref = useRef(null);
+
+  const { job_id } = useParams();
+
+  useEffect(() => {
+    async function get() {
+      const req = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/job/${job_id}`
+      );
+
+      console.log(req.data);
+
+      setInfo((p) => {
+        return {
+          ...p,
+          job_title: req.data.data.title,
+        };
+      });
+    }
+    get();
+  }, []);
 
   async function sendOtp() {
     setOtpStatus("Loading...");
@@ -43,6 +66,8 @@ const Applyjob = (props) => {
     if (ref.current) {
       const formData = new FormData(ref.current);
 
+      formData.append("job_id", job_id);
+
       console.log("formdata", formData);
 
       const req = await axios.post(
@@ -64,9 +89,9 @@ const Applyjob = (props) => {
         className="p-5 shadow-2xl rounded-lg"
       >
         <div className="flex justify-center">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl text-gray-600 font-bold">
             Applying for{" "}
-            <span className="text-xl text-red-600">{props.jobrole}</span>
+            <span className="text-xl text-red-600">{sendInfo.job_title}</span>
           </h1>
         </div>
         <div className="mt-4">

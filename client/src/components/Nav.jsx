@@ -12,18 +12,13 @@ function Navbar() {
     <div>
       <ul className="bg-blue-400 p-5 flex justify-end gap-5">
         <li>
-          <a href="#" className="text-white tex font-bold">
+          <a href="/" className="text-white tex font-bold">
             Home
           </a>
         </li>
         <li>
-          <a href="#" className="text-white font-bold">
-            Application
-          </a>
-        </li>
-        <li>
-          <a href="#" className="text-white font-bold">
-            Sign In
+          <a href="/active-jobs" className="text-white font-bold">
+            Active Jobs
           </a>
         </li>
       </ul>
