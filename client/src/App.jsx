@@ -7,26 +7,19 @@ import Joblist from "./components/applicant/Joblist";
 import Jobinfo from "./components/applicant/Jobinfo";
 import Post_job from "./components/hr/screens/Post_job";
 import Test from "./components/applicant/TestQ/Test";
+import Contact from "./components/applicant/Contact";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="">
       {/* <Nav /> */}
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route exact path="/" Component={Hrlogin} />
           <Route exact path="/Post_job" Component={Post_job} />
+          <Route exact path="/Contact" Component={Contact} />
         </Routes>
-      </BrowserRouter> */}
-
-      {/* <Hrlogin /> 
-      {/* <Applyjob jobrole="MERN STACK Developer " /> */}
-      {/*<Joblist />*/}
-      {/* <Jobinfo id="64219f5127bbf279efb97491" /> */}
-      {/* <Post_job /> */}
-      <Test />
+      </BrowserRouter>
     </div>
   );
 }
