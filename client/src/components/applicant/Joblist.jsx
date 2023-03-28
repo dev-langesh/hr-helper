@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Joblist = () => {
+const JobList = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
     async function get() {
       const req = await axios.get(`${import.meta.env.VITE_SERVER_URL}/job`);
+
+      console.log(req.data);
 
       setState(req.data.data);
     }
@@ -38,4 +40,4 @@ function Card({ title, description }) {
   );
 }
 
-export default Joblist;
+export default JobList;
