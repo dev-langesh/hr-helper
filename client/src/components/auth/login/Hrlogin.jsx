@@ -36,9 +36,9 @@ const Hrlogin = () => {
 
     const token = res.data.token;
 
-    window.localStorage.setItem("token", "token");
+    window.localStorage.setItem("token", token);
 
-    window.location = "/admin/post-job";
+    window.location = "/admin";
 
     // redirect("/admin/post-job");
   }

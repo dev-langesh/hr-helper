@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Nav.css";
 
 function Navbar() {
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
 
   useEffect(() => {
     if (window.localStorage.getItem("token")) {
@@ -19,19 +19,28 @@ function Navbar() {
     // </nav>
     <div>
       <ul className="bg-blue-400 p-5 flex justify-end gap-5">
-        <li>
-          <a href="/" className="text-white tex font-bold">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="/active-jobs" className="text-white font-bold">
-            Active Jobs
-          </a>
-        </li>
+        {!auth && (
+          <>
+            <li>
+              <a href="/" className="text-white tex font-bold">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/active-jobs" className="text-white font-bold">
+                Active Jobs
+              </a>
+            </li>
+          </>
+        )}
 
         {auth && (
           <div className="flex space-x-5">
+            <li>
+              <a href="/admin" className="text-white tex font-bold">
+                Home
+              </a>
+            </li>
             <li>
               <a href="/admin/post-job" className="text-white tex font-bold">
                 Post Job
@@ -42,14 +51,17 @@ function Navbar() {
                 href="/admin/post-personality"
                 className="text-white tex font-bold"
               >
-                Post Questions
+                Personality
               </a>
             </li>{" "}
             <li>
-              <a href="/personality-test" className="text-white tex font-bold">
-                Personality Test
+              <a
+                href="/apptitude/add-questions"
+                className="text-white tex font-bold"
+              >
+                Apptitude
               </a>
-            </li>
+            </li>{" "}
           </div>
         )}
       </ul>

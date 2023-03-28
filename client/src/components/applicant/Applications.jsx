@@ -24,8 +24,8 @@ export default function Applications() {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-xl font-bold text-gray-800 pb-6">Applications</h1>
+    <div className="p-6 space-y-4">
+      <h1 className="text-xl font-bold text-gray-800 pb-6 ">Applications</h1>
 
       {state.map((application) => {
         return <Card key={application._id} {...application} />;

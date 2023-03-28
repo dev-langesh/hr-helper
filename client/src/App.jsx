@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/admin" Component={HrDashboard} />
+          <Route exact path="/admin/login" Component={Hrlogin} />
           <Route path="/" Component={Model} />
           <Route path="/admin/post-job" Component={Post_job} />
           <Route path="/Applyjob/:job_id" Component={Applyjob} />
