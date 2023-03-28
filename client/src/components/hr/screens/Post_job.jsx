@@ -65,7 +65,7 @@ function Post_job() {
             id="description"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
-            className="block w-full border-gray-300 rounded-lg mb-4 px-3 py-2"
+            className="block w-full border border-gray-400 rounded-lg mb-4 px-3 py-2"
           ></textarea>
         </div>
         <div className="mb-4">
