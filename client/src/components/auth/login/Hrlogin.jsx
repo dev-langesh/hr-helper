@@ -9,6 +9,8 @@ const Hrlogin = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   function changeHandler(e) {
     setState((prev) => {
       return {
@@ -21,16 +23,20 @@ const Hrlogin = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    setLoading(true);
+
     const res = await axios.post(
       `${import.meta.env.VITE_SERVER_URL}/auth/login`,
       state
     );
 
+    setLoading(false);
+
     console.log(res.data);
 
-    // const token = res.data.token;
+    const token = res.data.token;
 
-    // window.localStorage.setItem("token", token);
+    window.localStorage.setItem("token", "token");
 
     window.location = "/admin/post-job";
 
@@ -79,7 +85,7 @@ const Hrlogin = () => {
 
           <div className="mt-9">
             <button className="bttn w-full rounded-md font-bold py-1">
-              Sign In
+              {loading ? "Loading.." : "Sign In"}
             </button>
           </div>
         </form>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Nav.css";
 
 function Navbar() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   useEffect(() => {
     if (window.localStorage.getItem("token")) {

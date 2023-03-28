@@ -9,9 +9,9 @@ async function postApplication(req, res) {
 
     console.log(req.file);
 
-    if (req.file.mimetype !== "application/pdf") {
-      throw new Error("Upload in pdf format");
-    }
+    // if (req.file.mimetype !== "application/pdf") {
+    //   throw new Error("Upload in pdf format");
+    // }
 
     const s3_url = await uploadFileToS3(req.file);
 

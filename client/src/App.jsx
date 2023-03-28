@@ -8,6 +8,7 @@ import Jobinfo from "./components/applicant/Jobinfo";
 import Post_job from "./components/hr/screens/Post_job";
 import PostPersonalityQuestions from "./components/personality/PostPersonalityQuestions";
 import Test from "./components/applicant/TestQ/Test";
+import Model from "./components/Model";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/admin" Component={Hrlogin} />
+          <Route path="/" Component={Model} />
           <Route path="/admin/post-job" Component={Post_job} />
           <Route path="/Applyjob/:job_id" Component={Applyjob} />
           <Route path="/active-jobs" Component={JobList} />

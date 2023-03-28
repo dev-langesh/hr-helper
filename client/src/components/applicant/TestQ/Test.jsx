@@ -38,6 +38,8 @@ const Test = () => {
 
   function handleSubmit(e) {
     console.log(answers);
+
+    alert("Application successfull");
   }
 
   return (

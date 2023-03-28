@@ -49,7 +49,7 @@ function Post_job() {
         onSubmit={handleSubmit}
         className="bg-white rounded-lg shadow-md p-8 max-w-md w-full"
       >
-        <h2 className="text-2xl font-bold mb-4">Basic Form</h2>
+        <h2 className="text-2xl text-center font-bold mb-4">Post New Job</h2>
         <div className="mb-4">
           <label className="block font-bold mb-2" htmlFor="title">
             Title:
