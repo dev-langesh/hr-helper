@@ -40,7 +40,7 @@ async function sendOtp(req, res) {
     console.log(rec);
 
     await sendMail({
-      subject: "OTP for email verification",
+      subject: "OTP for email vderification",
       text: `Your otp for your job application is ${otp}`,
       to: email,
     });
@@ -51,4 +51,22 @@ async function sendOtp(req, res) {
   }
 }
 
-module.exports = { postApplication, sendOtp };
+async function verifyOtp(req, res) {
+  try {
+    const { otp, email } = req.body;
+
+    const rec = await Otp.findOneAndDelete({ email, otp });
+
+    console.log(rec);
+
+    if (!rec) {
+      res.json({ error: "Invalid credentials" });
+    }
+
+    res.json({ message: "verified" });
+  } catch (err) {
+    if (err) res.json({ error: "Not verified" });
+  }
+}
+
+module.exports = { postApplication, sendOtp, verifyOtp };
