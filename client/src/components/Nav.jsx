@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Nav.css";
 
 function Navbar() {
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    if (window.localStorage.getItem("token")) {
+      setAuth(true);
+    }
+  }, []);
+
   return (
     // <nav className="bg-gray-100 h-16 flex justify-between items-center px-4">
     //   <div className="text-lg font-bold text-gray-800">Company Name</div>
@@ -21,6 +29,29 @@ function Navbar() {
             Active Jobs
           </a>
         </li>
+
+        {auth && (
+          <div className="flex space-x-5">
+            <li>
+              <a href="/admin/post-job" className="text-white tex font-bold">
+                Post Job
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/post-personality"
+                className="text-white tex font-bold"
+              >
+                Post Questions
+              </a>
+            </li>{" "}
+            <li>
+              <a href="/personality-test" className="text-white tex font-bold">
+                Personality Test
+              </a>
+            </li>
+          </div>
+        )}
       </ul>
     </div>
   );

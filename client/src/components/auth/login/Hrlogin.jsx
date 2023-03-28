@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { redirect } from "react-router-dom";
 // import LockIcon from "@mui/icons-material/Lock";
 
 const Hrlogin = () => {
@@ -26,6 +27,14 @@ const Hrlogin = () => {
     );
 
     console.log(res.data);
+
+    // const token = res.data.token;
+
+    // window.localStorage.setItem("token", token);
+
+    window.location = "/admin/post-job";
+
+    // redirect("/admin/post-job");
   }
 
   return (

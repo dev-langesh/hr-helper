@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
+import { redirect } from "react-router-dom";
 
 function Post_job() {
   const [title, setTitle] = useState("");
@@ -36,6 +37,10 @@ function Post_job() {
     );
 
     console.log(res.data);
+
+    if (!res.data.error) {
+      window.location = "/active-jobs";
+    }
   };
 
   return (

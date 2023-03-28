@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/admin" Component={Hrlogin} />
-          <Route path="/admin/Post_job" Component={Post_job} />
+          <Route path="/admin/post-job" Component={Post_job} />
           <Route path="/Applyjob/:job_id" Component={Applyjob} />
           <Route path="/active-jobs" Component={JobList} />
           <Route path="/personality-test" Component={Test} />

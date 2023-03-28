@@ -67,6 +67,7 @@ const Applyjob = (props) => {
       const formData = new FormData(ref.current);
 
       formData.append("job_id", job_id);
+      formData.append("verified_email", sendInfo.verified_email);
 
       console.log("formdata", formData);
 
@@ -78,7 +79,7 @@ const Applyjob = (props) => {
       console.log(req.data);
 
       if (!req.data.error) {
-        redirect("/active-jobs");
+        window.location = "/personality-test";
       }
     }
   }

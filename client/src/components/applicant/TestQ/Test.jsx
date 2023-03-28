@@ -58,12 +58,16 @@ const Test = () => {
       </div>
 
       <div className="mt-2 flex justify-center py-9">
-        <button
-          onClick={handleSubmit}
-          className=" py-2 px-3 hover:ring  bg-indigo-500 text-white font-bold"
-        >
-          Submit
-        </button>
+        {questions.length === 0 ? (
+          <h1>No Questions found</h1>
+        ) : (
+          <button
+            onClick={handleSubmit}
+            className=" py-2 px-3 hover:ring  bg-indigo-500 text-white font-bold"
+          >
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
