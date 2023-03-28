@@ -12,10 +12,10 @@ const Test = () => {
         `${import.meta.env.VITE_SERVER_URL}/personality`
       );
 
-      console.log(req.data.data);
+      console.log(req.data.data[0].questions);
 
       if (req.data.data) {
-        setQuestions(req.data.data);
+        setQuestions(req.data.data[0].questions);
       }
     }
 
