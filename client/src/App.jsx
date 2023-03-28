@@ -12,7 +12,7 @@ import Contact from "./components/applicant/Contact";
 function App() {
   return (
     <div className="">
-      {/* <Nav /> */}
+      <Nav />
       <BrowserRouter>
         <Routes>
           <Route exact path="/" Component={Hrlogin} />
