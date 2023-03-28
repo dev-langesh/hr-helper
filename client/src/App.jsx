@@ -6,6 +6,7 @@ import Applyjob from "./components/applicant/Applyjob";
 import JobList from "./components/applicant/JobList";
 import Jobinfo from "./components/applicant/Jobinfo";
 import Post_job from "./components/hr/screens/Post_job";
+import PostPersonalityQuestions from "./components/personality/PostPersonalityQuestions";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route path="/Applyjob" Component={Applyjob} />
           <Route path="/Jobinfo" Component={Jobinfo} />
           <Route path="/Joblist" Component={JobList} />
+          <Route
+            path="admin/post-personality"
+            Component={PostPersonalityQuestions}
+          />
         </Routes>
       </BrowserRouter>
 
