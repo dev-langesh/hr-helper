@@ -10,7 +10,7 @@ const schema = new mongoose.Schema({
   experience: { type: Number, default: 0 },
   required_employees: { type: Number, required: true },
   status: { type: String, default: "active" },
-  // job_id: { type: String, required: true },
+  job_id: { type: String, required: true },
 });
 
 const Job = mongoose.model("job", schema);
