@@ -16,7 +16,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" Component={Hrlogin} />
-          <Route exact path="/Post_job" Component={Post_job} />
+          <Route exact path="/admin/Post_job" Component={Post_job} />
+          <Route exact path="/admin/Post_job" Component={Post_job} />
         </Routes>
       </BrowserRouter>
 
