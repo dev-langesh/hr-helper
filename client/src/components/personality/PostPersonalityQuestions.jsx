@@ -167,39 +167,6 @@ export default function PostPersonalityQuestions() {
                     </>
                   )}
                 </div>
-
-                {/* <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                  onChange={(e) => updateAnswer(e, i)}
-                >
-                  <FormControlLabel
-                    value="strongly_agree"
-                    control={<Radio />}
-                    label="Strongly Agree"
-                  />
-                  <FormControlLabel
-                    value="somewhat_agree"
-                    control={<Radio />}
-                    label="Somewhat agree"
-                  />
-                  <FormControlLabel
-                    value="neutral"
-                    control={<Radio />}
-                    label="neutral"
-                  />
-                  <FormControlLabel
-                    value="somewhat_disagree"
-                    control={<Radio />}
-                    label="Somewhat Disagree"
-                  />{" "}
-                  <FormControlLabel
-                    value="strongly_disagree"
-                    control={<Radio />}
-                    label="Strongly Disagree"
-                  />
-                </RadioGroup> */}
               </div>
             );
           })}

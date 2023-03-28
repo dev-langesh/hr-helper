@@ -11,10 +11,11 @@ import Test from "./components/applicant/TestQ/Test";
 import Model from "./components/Model";
 import HrDashboard from "./components/hr/screens/HrDashboard";
 import Applications from "./components/applicant/Applications";
+import AddApptitudeQuestions from "./components/apptitude/AddApptitudeQuestions";
 
 function App() {
   return (
-    <div className="">
+    <div className="bg-slate-50 w-screen h-screen">
       <Nav />
       <BrowserRouter>
         <Routes>
@@ -25,6 +26,10 @@ function App() {
           <Route path="/active-jobs" Component={JobList} />
           <Route path="/personality-test" Component={Test} />
           <Route path="/applications/:job_id" Component={Applications} />
+          <Route
+            path="/apptitude/add-questions"
+            Component={AddApptitudeQuestions}
+          />
           <Route
             path="admin/post-personality"
             Component={PostPersonalityQuestions}
