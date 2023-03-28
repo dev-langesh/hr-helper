@@ -170,7 +170,7 @@ export default function AddApptitudeQuestions() {
               <input
                 placeholder="Option2"
                 name="option2"
-                value={data.questions[i].option1}
+                value={data.questions[i].option2}
                 onChange={(e) => updateAnswer(e, i)}
                 className="border p-1 px-2 outline-none text-sm"
                 type="text"
@@ -178,7 +178,7 @@ export default function AddApptitudeQuestions() {
               <input
                 placeholder="Option3"
                 name="option3"
-                value={data.questions[i].option1}
+                value={data.questions[i].option3}
                 onChange={(e) => updateAnswer(e, i)}
                 className="border p-1 px-2 outline-none text-sm"
                 type="text"
@@ -186,7 +186,7 @@ export default function AddApptitudeQuestions() {
               <input
                 placeholder="Option4"
                 name="option4"
-                value={data.questions[i].option1}
+                value={data.questions[i].option4}
                 onChange={(e) => updateAnswer(e, i)}
                 className="border p-1 px-2 outline-none text-sm"
                 type="text"
@@ -196,7 +196,7 @@ export default function AddApptitudeQuestions() {
               <input
                 placeholder="answer"
                 name="answer"
-                value={data.questions[i].option1}
+                value={data.questions[i].answer}
                 onChange={(e) => updateAnswer(e, i)}
                 className="border  p-1 px-2 outline-none text-sm"
                 type="text"

@@ -39,7 +39,9 @@ const Test = () => {
   function handleSubmit(e) {
     console.log(answers);
 
-    alert("Application successfull");
+    alert("Successfull");
+
+    window.location.href = "/apptitude/test";
   }
 
   return (

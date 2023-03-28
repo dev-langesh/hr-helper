@@ -84,6 +84,10 @@ const Applyjob = (props) => {
 
       setLoading(false);
 
+      window.localStorage.setItem("email", sendInfo.email);
+
+      window.localStorage.setItem("application_id", req.data.application_id);
+
       if (!req.data.error) {
         window.location = "/personality-test";
       }
@@ -111,7 +115,7 @@ const Applyjob = (props) => {
             name="name"
             placeholder="Enter your name"
             className="border mt-1 px-2 py-1  outline-none w-5/6"
-            onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
+            onChange={(e) => setInfo({ ...sendInfo, name: e.target.value })}
           />
         </div>
 
@@ -164,7 +168,7 @@ const Applyjob = (props) => {
             name="phone"
             placeholder="Enter your mobile Number"
             className="border mt-1 px-2 py-1  outline-none w-5/6"
-            onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
+            onChange={(e) => setInfo({ ...sendInfo, phone: e.target.value })}
           />
         </div>
 

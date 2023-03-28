@@ -1,3 +1,4 @@
+const { Application } = require("../../../model/application.model");
 const { Apptitude } = require("../../../model/apptitude.model");
 
 async function addApptitudeQuestions(req, res) {
@@ -14,4 +15,23 @@ async function getApptitudeQuestions(req, res) {
   res.json({ data: questions });
 }
 
-module.exports = { getApptitudeQuestions, addApptitudeQuestions };
+// POST /application/score/?application_id=
+async function updateScore(req, res) {
+  const { application_id } = req.query;
+
+  console.log(req.body);
+
+  const data = await Application.findByIdAndUpdate(
+    application_id,
+    {
+      $set: { apptitude: req.body },
+    },
+    { new: true }
+  );
+
+  console.log(data);
+
+  res.json({ message: "success" });
+}
+
+module.exports = { getApptitudeQuestions, addApptitudeQuestions, updateScore };

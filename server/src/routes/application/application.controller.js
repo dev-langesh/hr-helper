@@ -29,7 +29,10 @@ async function postApplication(req, res) {
 
     console.log(application);
 
-    res.json({ message: "application is created" });
+    res.json({
+      message: "application is created",
+      application_id: application._id,
+    });
   } catch (err) {
     if (err) res.json({ error: err.message });
   }

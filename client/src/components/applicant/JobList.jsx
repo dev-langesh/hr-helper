@@ -71,6 +71,7 @@ function Card({
       window.location.href = `/applications/${id}`;
     } else {
       window.location.href = `/Applyjob/${id}`;
+      window.localStorage.setItem("job_id", id);
     }
   };
 

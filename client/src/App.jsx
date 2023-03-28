@@ -12,6 +12,7 @@ import Model from "./components/Model";
 import HrDashboard from "./components/hr/screens/HrDashboard";
 import Applications from "./components/applicant/Applications";
 import AddApptitudeQuestions from "./components/apptitude/AddApptitudeQuestions";
+import ApptitudeTest from "./components/apptitude/ApptitudeTest";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           <Route
             path="/apptitude/add-questions"
             Component={AddApptitudeQuestions}
-          />
+          />{" "}
+          <Route path="/apptitude/test" Component={ApptitudeTest} />
           <Route
             path="admin/post-personality"
             Component={PostPersonalityQuestions}

@@ -6,8 +6,13 @@ const schema = mongoose.Schema(
     email: { type: String, required: true, unique: true },
     phone: { type: Number, required: true, unique: true },
     resume: { type: String, required: true },
-    verified_email: { type: Boolean, required: true },
+    verified_email: { type: Boolean, default: false },
     job_id: { type: String, required: true },
+    apptitude: {
+      quants: { type: Number, default: 0 },
+      verbal: { type: Number, default: 0 },
+      logical: { type: Number, default: 0 },
+    },
   },
   { collection: "application" }
 );
