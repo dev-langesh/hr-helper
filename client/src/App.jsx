@@ -6,8 +6,7 @@ import Applyjob from "./components/applicant/Applyjob";
 import Joblist from "./components/applicant/Joblist";
 import Jobinfo from "./components/applicant/Jobinfo";
 import Post_job from "./components/hr/screens/Post_job";
-import Test from "./components/applicant/Test";
-import Post_questions from "./components/hr/screens/Post_question";
+import Test from "./components/applicant/TestQ/Test";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,8 +26,7 @@ function App() {
       {/*<Joblist />*/}
       {/* <Jobinfo id="64219f5127bbf279efb97491" /> */}
       {/* <Post_job /> */}
-      {/* <Test /> */}
-      <Post_questions />
+      <Test />
     </div>
   );
 }
