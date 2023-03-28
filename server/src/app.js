@@ -3,6 +3,7 @@ const { ApplicationRouter } = require("./routes/application/application.route");
 const { AuthRouter } = require("./routes/auth/auth.route");
 const { JobRouter } = require("./routes/jobs/jobs.route");
 const cors = require("cors");
+const { PersonalityRouter } = require("./routes/personality/personality.route");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cors());
 app.use("/auth", AuthRouter);
 app.use("/job", JobRouter);
 app.use("/application", ApplicationRouter);
+app.use("/personality", PersonalityRouter);
 
 // default
 app.get("/", (req, res) => {
