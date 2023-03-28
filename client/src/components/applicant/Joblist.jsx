@@ -15,12 +15,12 @@ const Joblist = () => {
   }, []);
 
   return (
-    <div className="p-5 bg-blue-100 h-screen">
+    <div className="p-5 bg-blue-100 h-screen ">
       <div>
         <h1 className="text-3xl font-bold ">Active Jobs Available Now</h1>
       </div>
 
-      <div className="my-5">
+      <div className="my-5 space-y-4">
         {state.map((job) => {
           return <Card title={job.title} description={job.description} />;
         })}

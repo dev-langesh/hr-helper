@@ -75,7 +75,6 @@ const Applyjob = (props) => {
           <input
             type="text"
             name="name"
-            value={sendInfo.name}
             placeholder="Enter your name"
             className="mt-1 px-2 py-1 rounded-md outline-none w-5/6"
             onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
@@ -89,7 +88,6 @@ const Applyjob = (props) => {
             <input
               name="email"
               type="text"
-              value={sendInfo.email}
               placeholder="Example@gmail.com"
               className="mt-1 px-2 py-1 rounded-md outline-none "
               onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
@@ -127,7 +125,6 @@ const Applyjob = (props) => {
           <input
             type="text"
             name="phone"
-            value={sendInfo.phone}
             placeholder="Enter your mobile Number"
             className="mt-1 px-2 py-1 rounded-md outline-none w-5/6"
             onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
