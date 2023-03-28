@@ -1,3 +1,4 @@
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import React from "react";
 
 const Question = (props) => {
@@ -5,55 +6,44 @@ const Question = (props) => {
     <div className="px-5 pt-5">
       <div className="bg-blue-300 p-5 border-4 border-blue-400 shadow-lg">
         <div>
-          <p className="font-bold">Question {props.index}</p>
-          <h1 className="text-2xl">{props.question}</h1>
+          {/* <p className="font-bold">Question {props.index}</p> */}
+          <h1 className="text-2xl">
+            {props.index}. {props.question}
+          </h1>
         </div>
         <div className="flex-col mt-2">
-          <div className="flex gap-3">
-            <input
-              onChange={(e) => props.selectAnswer(e, props.id)}
-              name={props.index}
-              type="radio"
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+            onChange={(e) => props.selectAnswer(e, props.question)}
+          >
+            <FormControlLabel
               value="strongly_agree"
+              control={<Radio />}
+              label="Strongly Agree"
             />
-            <p className="font-semibold">Strongly Agree</p>
-          </div>
-          <div className="flex gap-3">
-            <input
-              onChange={(e) => props.selectAnswer(e, props.id)}
-              name={props.index}
-              type="radio"
+            <FormControlLabel
               value="somewhat_agree"
+              control={<Radio />}
+              label="Somewhat agree"
             />
-            <p className="font-semibold">Somewhat Agree</p>
-          </div>
-          <div className="flex gap-3">
-            <input
-              onChange={(e) => props.selectAnswer(e, props.id)}
-              name={props.index}
-              type="radio"
+            <FormControlLabel
               value="neutral"
+              control={<Radio />}
+              label="neutral"
             />
-            <p className="font-semibold">Neutral</p>
-          </div>
-          <div className="flex gap-3">
-            <input
-              onChange={(e) => props.selectAnswer(e, props.id)}
-              name={props.index}
-              type="radio"
+            <FormControlLabel
               value="somewhat_disagree"
-            />
-            <p className="font-semibold">Somewhat Disagree</p>
-          </div>
-          <div className="flex gap-3">
-            <input
-              onChange={(e) => props.selectAnswer(e, props.id)}
-              name={props.index}
-              type="radio"
+              control={<Radio />}
+              label="Somewhat Disagree"
+            />{" "}
+            <FormControlLabel
               value="strongly_disagree"
+              control={<Radio />}
+              label="Strongly Disagree"
             />
-            <p className="font-semibold">Stongly Disgree</p>
-          </div>
+          </RadioGroup>
         </div>
       </div>
     </div>

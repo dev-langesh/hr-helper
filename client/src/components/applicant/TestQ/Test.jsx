@@ -1,54 +1,49 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Question from "./Question";
 
-const res = {
-  _id: "64227ad7ee2255a73013a10a",
-  questions: [
-    {
-      question_text: "Will you help friends to solve their coding problems?",
-      answer: "strongly_agree",
-      _id: "64227ad7ee2255a73013a10b",
-    },
-    {
-      question_text: "q2",
-      answer: "neutral",
-      _id: "64227ad7ee2255a73013a10c",
-    },
-    {
-      question_text: "q3",
-      answer: "strongly_disagree",
-      _id: "64227ad7ee2255a73013a10d",
-    },
-    {
-      question_text: "q4",
-      answer: "somewhat_agree",
-      _id: "64227ad7ee2255a73013a10e",
-    },
-  ],
-  __v: 0,
-};
-
 const Test = () => {
-  const [marks, setMarks] = useState(0);
+  const [answers, setAnswers] = useState([]);
+  const [questions, setQuestions] = useState([]);
 
-  function selectAnswer(e, id) {
-    // console.log(e.target.value, id);
+  useState(() => {
+    async function get() {
+      const req = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/personality`
+      );
 
-    res.questions.forEach((q) => {
-      if (q._id === id && q.answer === e.target.value) {
-        setMarks(marks + 1);
+      console.log(req.data.data);
+
+      if (req.data.data) {
+        setQuestions(req.data.data);
       }
+    }
+
+    get();
+  }, []);
+
+  function selectAnswer(e, question_text) {
+    setAnswers((prev) => {
+      return [
+        ...prev,
+        {
+          question_text,
+          answer: e.target.value,
+        },
+      ];
     });
+
+    // console.log(q);
   }
 
-  // useEffect(() => {
-  //   console.log(marks);
-  // });
+  function handleSubmit(e) {
+    console.log(answers);
+  }
 
   return (
     <div>
       <div>
-        {res.questions.map((n, index) => {
+        {questions.map((n, index) => {
           return (
             <div>
               <Question
@@ -62,10 +57,10 @@ const Test = () => {
         })}
       </div>
 
-      <div className="mt-2 flex justify-center">
+      <div className="mt-2 flex justify-center py-9">
         <button
-          onClick={() => console.log(marks)}
-          className="bttng py-1 px-3 rounded-md text-white font-bold"
+          onClick={handleSubmit}
+          className=" py-2 px-3 hover:ring  bg-indigo-500 text-white font-bold"
         >
           Submit
         </button>

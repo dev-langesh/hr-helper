@@ -7,10 +7,6 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
       },
-      answer: {
-        type: String,
-        required: true,
-      },
     },
   ],
 });

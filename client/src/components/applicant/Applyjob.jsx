@@ -76,7 +76,7 @@ const Applyjob = (props) => {
             type="text"
             name="name"
             placeholder="Enter your name"
-            className="mt-1 px-2 py-1 rounded-md outline-none w-5/6"
+            className="border mt-1 px-2 py-1  outline-none w-5/6"
             onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
           />
         </div>
@@ -89,10 +89,13 @@ const Applyjob = (props) => {
               name="email"
               type="text"
               placeholder="Example@gmail.com"
-              className="mt-1 px-2 py-1 rounded-md outline-none "
+              className="border px-2 py-1  outline-none "
               onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
             />
-            <button onClick={sendOtp} className="bg-blue-500 text-white p-1">
+            <button
+              onClick={sendOtp}
+              className="bg-indigo-500 text-white p-1 px-2"
+            >
               {otpStatus}
             </button>
           </div>
@@ -106,12 +109,12 @@ const Applyjob = (props) => {
               <input
                 type="Number"
                 placeholder="otp"
-                className="mt-1 px-2 py-1 rounded-md outline-none "
+                className="border  px-2 py-1  outline-none "
                 onChange={(e) => setInfo({ ...sendInfo, otp: e.target.value })}
               />
               <button
                 onClick={verifyOtp}
-                className="bg-blue-500 text-white p-1"
+                className="bg-indigo-500 text-white p-1 px-2"
               >
                 verify Otp
               </button>
@@ -126,7 +129,7 @@ const Applyjob = (props) => {
             type="text"
             name="phone"
             placeholder="Enter your mobile Number"
-            className="mt-1 px-2 py-1 rounded-md outline-none w-5/6"
+            className="border mt-1 px-2 py-1  outline-none w-5/6"
             onChange={(e) => setInfo({ ...sendInfo, email: e.target.value })}
           />
         </div>
@@ -138,17 +141,33 @@ const Applyjob = (props) => {
             type="file"
             name="resume"
             placeholder="Example@gmail.com"
-            className="mt-1 px-2 py-1 rounded-md bg-white w-5/6 cursor-pointer"
+            className="border mt-1 px-2 py-1  bg-white w-5/6 cursor-pointer"
           />
         </div>
+
+        {/* <iframe
+          src="https://impira-docquery.hf.space"
+          frameborder="0"
+          width="850"
+          height="450"
+        ></iframe> */}
+
         <div className="mt-3">
+          {/* <button
+            onClick={() => {
+              console.log(sendInfo);
+            }}
+            className=" py-1 text-white w-full font-bold rounded-md"
+          >
+            Apply
+          </button> */}
           <button
             onClick={() => {
               console.log(sendInfo);
             }}
-            className="bttng py-1 text-white w-full font-bold rounded-md"
+            className=" py-2 px-3 hover:ring  bg-indigo-500 text-white font-bold w-full"
           >
-            Apply
+            Submit
           </button>
         </div>
       </form>

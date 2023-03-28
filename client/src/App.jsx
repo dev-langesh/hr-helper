@@ -12,27 +12,21 @@ import Test from "./components/applicant/TestQ/Test";
 function App() {
   return (
     <div className="">
-      {/* <Nav /> */}
-      {/* <BrowserRouter>
+      <Nav />
+      <BrowserRouter>
         <Routes>
           <Route exact path="/admin" Component={Hrlogin} />
           <Route path="/admin/Post_job" Component={Post_job} />
           <Route path="/Applyjob" Component={Applyjob} />
           <Route path="/Jobinfo" Component={Jobinfo} />
           <Route path="/Joblist" Component={JobList} />
+          <Route path="/personality-test" Component={Test} />
           <Route
             path="admin/post-personality"
             Component={PostPersonalityQuestions}
           />
         </Routes>
-      </BrowserRouter> */}
-
-      {/* <Hrlogin /> 
-      {/* <Applyjob jobrole="MERN STACK Developer " /> */}
-      {/*<Joblist />*/}
-      {/* <Jobinfo id="64219f5127bbf279efb97491" /> */}
-      {/* <Post_job /> */}
-      <Test />
+      </BrowserRouter>
     </div>
   );
 }
