@@ -1,7 +1,5 @@
 const { uploadFileToS3 } = require("../../../lib/aws/s3/uploadFileToS3");
-const { sendMail } = require("../../../lib/sendMail");
 const { Application } = require("../../../model/application.model");
-const { Otp } = require("../../../model/otp.model");
 
 async function postApplication(req, res) {
   try {
@@ -29,42 +27,4 @@ async function postApplication(req, res) {
   }
 }
 
-async function sendOtp(req, res) {
-  try {
-    const { email } = req.body;
-
-    const otp = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-
-    const rec = await Otp.create({ email, otp });
-
-    console.log(rec);
-
-    await sendMail({
-      subject: "OTP for email vderification",
-      text: `Your otp for your job application is ${otp}`,
-      to: email,
-    });
-
-    res.json({ message: "verification mail sent to your mail" });
-  } catch (err) {
-    if (err) res.json({ error: "Cant't send mail" });
-  }
-}
-
-async function verifyOtp(req, res) {
-  try {
-    const { otp, email } = req.body;
-
-    const rec = await Otp.findOneAndDelete({ email, otp });
-
-    if (!rec) {
-      res.json({ error: "Invalid credentials" });
-    }
-
-    res.json({ message: "verified" });
-  } catch (err) {
-    if (err) res.json({ error: "Not verified" });
-  }
-}
-
-module.exports = { postApplication, sendOtp, verifyOtp };
+module.exports = { postApplication };
