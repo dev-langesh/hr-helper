@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 
 const Applyjob = (props) => {
   const [sendInfo, setInfo] = useState({
@@ -76,9 +76,11 @@ const Applyjob = (props) => {
       );
 
       console.log(req.data);
-    }
 
-    console.log(sendInfo);
+      if (!req.data.error) {
+        redirect("/active-jobs");
+      }
+    }
   }
 
   return (
