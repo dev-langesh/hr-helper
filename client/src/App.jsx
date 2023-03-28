@@ -15,8 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/admin" Component={Hrlogin} />
           <Route path="/admin/Post_job" Component={Post_job} />
-          <Route path="/Applyjob" Component={Applyjob} />
-          <Route path="/Jobinfo" Component={Jobinfo} />
+          <Route path="/Applyjob/:id" Component={Applyjob} />
           <Route path="/Joblist" Component={JobList} />
         </Routes>
       </BrowserRouter>
