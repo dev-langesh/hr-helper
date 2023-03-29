@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import BarChart from "../chart/BarChart";
 
 export default function Applications() {
   const [state, setState] = useState([]);
@@ -27,7 +28,7 @@ export default function Applications() {
   }, []);
 
   useEffect(() => {
-    console.log(applicant);
+    console.log("applicant", applicant);
   });
 
   function updateApplicant(id) {
@@ -61,7 +62,9 @@ export default function Applications() {
         })}
       </section>
 
-      <section className="col-span-8"></section>
+      <section className="col-span-8">
+        <BarChart apptitude={applicant.apptitude} />
+      </section>
     </div>
   );
 }
