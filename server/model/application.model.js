@@ -13,6 +13,13 @@ const schema = mongoose.Schema(
       verbal: { type: Number, default: 0 },
       logical: { type: Number, default: 0 },
     },
+
+    resume_result: [
+      {
+        question: String,
+        answer: String,
+      },
+    ],
   },
   { collection: "application" }
 );

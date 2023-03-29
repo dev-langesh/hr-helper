@@ -16,6 +16,8 @@ const Applyjob = (props) => {
 
   const [loading, setLoading] = useState(false);
 
+  const [questions, setQuestions] = useState([]);
+
   const ref = useRef(null);
 
   const { job_id } = useParams();
@@ -26,7 +28,9 @@ const Applyjob = (props) => {
         `${import.meta.env.VITE_SERVER_URL}/job/${job_id}`
       );
 
-      console.log(req.data);
+      console.log(req.data.data);
+
+      setQuestions(req.data.data.questions);
 
       setInfo((p) => {
         return {
@@ -72,7 +76,7 @@ const Applyjob = (props) => {
 
       formData.append("job_id", job_id);
       formData.append("verified_email", sendInfo.verified_email);
-
+      formData.append("questions", questions);
       console.log("formdata", formData);
 
       const req = await axios.post(
@@ -178,7 +182,6 @@ const Applyjob = (props) => {
           <input
             type="file"
             name="resume"
-            placeholder="Example@gmail.com"
             className="border mt-1 px-2 py-1  bg-white w-5/6 cursor-pointer"
           />
         </div>

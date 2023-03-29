@@ -12,6 +12,7 @@ function Post_job() {
   const [salary, setSalary] = useState("");
   const [experience, setExperience] = useState("");
   const [employee, setEmployee] = useState("");
+  const [questions, setQuestions] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,6 +29,7 @@ function Post_job() {
       experience,
       required_employees: employee,
       skills: skillsArray,
+      questions,
     };
     console.log(formData);
 
@@ -39,7 +41,7 @@ function Post_job() {
     console.log(res.data);
 
     if (!res.data.error) {
-      window.location = "/active-jobs";
+      window.location = "/admin";
     }
   };
 
@@ -149,6 +151,27 @@ function Post_job() {
             id="required_employees"
             value={experience}
             onChange={(event) => setExperience(event.target.value)}
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>{" "}
+        <div className="mb-4">
+          <label className="block font-bold mb-2" htmlFor="skills">
+            Your Expectations:
+          </label>
+          <input
+            type="text"
+            onBlur={(event) =>
+              setQuestions((prev) => [...prev, event.target.value])
+            }
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>{" "}
+        <div className="mb-4">
+          <input
+            type="text"
+            onBlur={(event) =>
+              setQuestions((prev) => [...prev, event.target.value])
+            }
             className="w-full border border-gray-400 p-2 rounded-md"
           />
         </div>
