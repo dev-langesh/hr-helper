@@ -7,6 +7,7 @@ export default function Applications() {
   const [state, setState] = useState([]);
   const [applicant, setApplicant] = useState([]);
   const [personality, setPersonality] = useState("");
+  const [score, setScore] = useState(0);
 
   const { job_id } = useParams();
 
@@ -36,9 +37,15 @@ export default function Applications() {
           personality: applicant.personality,
         });
 
-        console.log(req.data);
+        const req1 = await axios.get(`http://localhost:8001/candidate/`);
+
+        console.log(req1.data);
 
         const data = JSON.parse(req.data);
+
+        const sc = JSON.parse(req1.data);
+
+        setScore(sc.score);
 
         setPersonality(data.personality_type);
       }
@@ -78,10 +85,15 @@ export default function Applications() {
         })}
       </section>
 
-      <section className="col-span-8">
+      <section className="col-span-8 p-2">
         {applicant.apptitude && <BarChart apptitude={applicant.apptitude} />}
 
-        <h1>Personality : {personality}</h1>
+        <h1 className="text-sm text-gray-500 py-2">
+          Personality : {personality}
+        </h1>
+        <h1 className="text-sm text-gray-500 py-2">
+          Candidate Score : {score}
+        </h1>
       </section>
     </div>
   );
