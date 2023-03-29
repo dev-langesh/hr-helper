@@ -14,7 +14,7 @@ const schema = mongoose.Schema(
       logical: { type: Number, default: 0 },
     },
 
-    personality: [],
+    personality: {},
 
     resume_result: [
       {

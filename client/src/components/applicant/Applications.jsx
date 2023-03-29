@@ -6,6 +6,7 @@ import BarChart from "../chart/BarChart";
 export default function Applications() {
   const [state, setState] = useState([]);
   const [applicant, setApplicant] = useState([]);
+  const [personality, setPersonality] = useState("");
 
   const { job_id } = useParams();
 
@@ -28,8 +29,23 @@ export default function Applications() {
   }, []);
 
   useEffect(() => {
-    console.log("applicant", applicant);
-  });
+    async function get() {
+      if (applicant.personality) {
+        console.log(applicant.personality);
+        const req = await axios.post(`http://localhost:8001/personality/`, {
+          personality: applicant.personality,
+        });
+
+        console.log(req.data);
+
+        const data = JSON.parse(req.data);
+
+        setPersonality(data.personality_type);
+      }
+    }
+
+    get();
+  }, [applicant]);
 
   function updateApplicant(id) {
     console.log(id);
@@ -63,7 +79,9 @@ export default function Applications() {
       </section>
 
       <section className="col-span-8">
-        <BarChart apptitude={applicant.apptitude} />
+        {applicant.apptitude && <BarChart apptitude={applicant.apptitude} />}
+
+        <h1>Personality : {personality}</h1>
       </section>
     </div>
   );

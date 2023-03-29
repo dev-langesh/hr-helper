@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Question from "./Question";
 
 const Test = () => {
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState({});
   const [questions, setQuestions] = useState([]);
 
   useState(() => {
@@ -24,12 +24,11 @@ const Test = () => {
 
   function selectAnswer(e, type) {
     setAnswers((prev) => {
-      return [
+      return {
         ...prev,
-        {
-          [type]: e.target.value,
-        },
-      ];
+
+        [type]: e.target.value,
+      };
     });
 
     // console.log(q);

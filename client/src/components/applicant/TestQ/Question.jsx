@@ -23,18 +23,14 @@ const Question = (props) => {
               control={<Radio />}
               label="Strongly Agree"
             />
-            <FormControlLabel
-              value="somewhat agree"
-              control={<Radio />}
-              label="Somewhat agree"
-            />
+            <FormControlLabel value="agree" control={<Radio />} label="agree" />
             <FormControlLabel
               value="neutral"
               control={<Radio />}
               label="neutral"
             />
             <FormControlLabel
-              value="somewhat disagree"
+              value="disagree"
               control={<Radio />}
               label="Somewhat Disagree"
             />{" "}
