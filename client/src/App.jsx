@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Hrlogin from "./components/auth/login/Hrlogin";
-import Nav from "./components/Nav";
 import Applyjob from "./components/applicant/Applyjob";
 import JobList from "./components/applicant/JobList";
 import Jobinfo from "./components/applicant/Jobinfo";
@@ -15,15 +14,17 @@ import AddApptitudeQuestions from "./components/apptitude/AddApptitudeQuestions"
 import ApptitudeTest from "./components/apptitude/ApptitudeTest";
 import Home from "./components/applicant/Home";
 import Contact from "./components/applicant/Contact";
+import Navbar from "./components/Nav";
 
 function App() {
   return (
     <div className="bg-slate-50 w-screen h-screen">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route exact path="/" Component={Home} />
-          <Route exact path="/admin/dashboard" Component={HrDashboard} />
-          <Route exact path="/admin" Component={Hrlogin} />
+          <Route exact path="/admin" Component={HrDashboard} />
+          <Route exact path="/admin/login" Component={Hrlogin} />
           <Route path="/model" Component={Model} />
           <Route path="/admin/post-job" Component={Post_job} />
           <Route path="/Applyjob/:job_id" Component={Applyjob} />

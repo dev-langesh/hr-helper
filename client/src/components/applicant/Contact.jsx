@@ -2,7 +2,6 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
-import Navapp from "./Navapp";
 
 function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,7 +24,6 @@ function Contact() {
 
   return (
     <>
-      <Navapp colo="bg-blue-500" />
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
         <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-lg">
           {isSubmitted ? (

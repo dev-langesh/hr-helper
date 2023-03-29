@@ -1,14 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
 import React from "react";
-import Navapp from "./Navapp";
 
 const Home = () => {
   return (
     <div className="">
       <div className="land flex-col items-center">
-        <Navapp />
-
         <div className="flex justify-around items-center p-5 sm:mt-0 md:mt-0 mt-14">
           <div>
             <h1 className="sm:text-6xl md:text-6xl text-3xl text-white font-extrabold">

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Navapp from "./Navapp";
 
 const JobList = (props) => {
   const [state, setState] = useState([]);
@@ -20,7 +19,6 @@ const JobList = (props) => {
 
   return (
     <>
-      <Navapp colo="bg-blue-500" />
       <div className="p-5 bg-gray-200 h-screen ">
         <div>
           <h1 className="text-2xl font-bold text-gray-700 ">
