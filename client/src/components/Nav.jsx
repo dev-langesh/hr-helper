@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 function Navbar() {
@@ -11,61 +12,37 @@ function Navbar() {
   }, []);
 
   return (
-    // <nav className="bg-gray-100 h-16 flex justify-between items-center px-4">
-    //   <div className="text-lg font-bold text-gray-800">Company Name</div>
-    //   <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-    //     Sign In
-    //   </button>
-    // </nav>
-    <div>
-      <ul className="bg-blue-400 p-5 flex justify-end gap-5">
-        {!auth && (
-          <>
-            <li>
-              <a href="/" className="text-white tex font-bold">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/active-jobs" className="text-white font-bold">
-                Active Jobs
-              </a>
-            </li>
-          </>
-        )}
-
-        {auth && (
-          <div className="flex space-x-5">
-            <li>
-              <a href="/admin" className="text-white tex font-bold">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/admin/post-job" className="text-white tex font-bold">
-                Post Job
-              </a>
-            </li>
-            <li>
-              <a
-                href="/admin/post-personality"
-                className="text-white tex font-bold"
-              >
-                Personality
-              </a>
-            </li>{" "}
-            <li>
-              <a
-                href="/apptitude/add-questions"
-                className="text-white tex font-bold"
-              >
-                Apptitude
-              </a>
-            </li>{" "}
-          </div>
-        )}
+    <nav className="sm:flex md:flex block p-3 justify-between">
+      <h1 className="sm:text-2xl md:text-2xl text-xl sm:text-start md:text-start text-center font-bold text-white">
+        Company Name
+      </h1>
+      <ul className="flex sm:justify-end md:justify-end justify-center gap-5 pr-4 sm:mt-0 md:mt-0 mt-4">
+        <li>
+          <a
+            onClick={navigateHome}
+            className="text-white font-bold foot cursor-pointer"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            onClick={navigateCareer}
+            className="text-white font-bold foot cursor-pointer"
+          >
+            Careers
+          </a>
+        </li>
+        <li>
+          <a
+            onClick={navigateContact}
+            className="text-white font-bold foot cursor-pointer"
+          >
+            Contact Us
+          </a>
+        </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 

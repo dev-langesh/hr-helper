@@ -13,15 +13,17 @@ import HrDashboard from "./components/hr/screens/HrDashboard";
 import Applications from "./components/applicant/Applications";
 import AddApptitudeQuestions from "./components/apptitude/AddApptitudeQuestions";
 import ApptitudeTest from "./components/apptitude/ApptitudeTest";
+import Home from "./components/applicant/Home";
+import Contact from "./components/applicant/Contact";
 
 function App() {
   return (
     <div className="bg-slate-50 w-screen h-screen">
-      <Nav />
       <BrowserRouter>
         <Routes>
-          <Route exact path="/admin" Component={HrDashboard} />
-          <Route exact path="/admin/login" Component={Hrlogin} />
+          <Route exact path="/" Component={Home} />
+          <Route exact path="/admin/dashboard" Component={HrDashboard} />
+          <Route exact path="/admin" Component={Hrlogin} />
           <Route path="/model" Component={Model} />
           <Route path="/admin/post-job" Component={Post_job} />
           <Route path="/Applyjob/:job_id" Component={Applyjob} />
@@ -37,6 +39,7 @@ function App() {
             path="admin/post-personality"
             Component={PostPersonalityQuestions}
           />
+          <Route path="/Contact" Component={Contact} />
         </Routes>
       </BrowserRouter>
     </div>
