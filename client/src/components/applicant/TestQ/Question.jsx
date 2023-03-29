@@ -16,15 +16,15 @@ const Question = (props) => {
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
-            onChange={(e) => props.selectAnswer(e, props.question)}
+            onChange={(e) => props.selectAnswer(e, props.type)}
           >
             <FormControlLabel
-              value="strongly_agree"
+              value="strongly agree"
               control={<Radio />}
               label="Strongly Agree"
             />
             <FormControlLabel
-              value="somewhat_agree"
+              value="somewhat agree"
               control={<Radio />}
               label="Somewhat agree"
             />
@@ -34,12 +34,12 @@ const Question = (props) => {
               label="neutral"
             />
             <FormControlLabel
-              value="somewhat_disagree"
+              value="somewhat disagree"
               control={<Radio />}
               label="Somewhat Disagree"
             />{" "}
             <FormControlLabel
-              value="strongly_disagree"
+              value="strongly disagree"
               control={<Radio />}
               label="Strongly Disagree"
             />

@@ -1,3 +1,4 @@
+const { Application } = require("../../../model/application.model");
 const { Personality } = require("../../../model/personality.model");
 
 async function postPersonalityQuestions(req, res) {
@@ -18,4 +19,20 @@ async function getPersonalityQuestions(req, res) {
   res.json({ data: questions });
 }
 
-module.exports = { postPersonalityQuestions, getPersonalityQuestions };
+async function postResult(req, res) {
+  console.log(req.body);
+
+  const applicant = await Application.findByIdAndUpdate(req.body.id, {
+    $set: { personality: req.body.result },
+  });
+
+  console.log(applicant);
+
+  res.json({ message: "success" });
+}
+
+module.exports = {
+  postPersonalityQuestions,
+  getPersonalityQuestions,
+  postResult,
+};

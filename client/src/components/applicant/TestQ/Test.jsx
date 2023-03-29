@@ -22,13 +22,12 @@ const Test = () => {
     get();
   }, []);
 
-  function selectAnswer(e, question_text) {
+  function selectAnswer(e, type) {
     setAnswers((prev) => {
       return [
         ...prev,
         {
-          question_text,
-          answer: e.target.value,
+          [type]: e.target.value,
         },
       ];
     });
@@ -36,8 +35,25 @@ const Test = () => {
     // console.log(q);
   }
 
-  function handleSubmit(e) {
+  useEffect(() => {
+    console.log(questions);
     console.log(answers);
+  });
+
+  async function handleSubmit(e) {
+    console.log(answers);
+
+    const id = window.localStorage.getItem("application_id");
+
+    const req = await axios.post(
+      `${import.meta.env.VITE_SERVER_URL}/personality/result`,
+      {
+        id,
+        result: answers,
+      }
+    );
+
+    console.log(req.data);
 
     alert("Successfull");
 
@@ -53,6 +69,7 @@ const Test = () => {
               <Question
                 selectAnswer={selectAnswer}
                 question={n.question_text}
+                type={n.ans_type}
                 index={index + 1}
                 id={n._id}
               />

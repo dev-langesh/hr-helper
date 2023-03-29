@@ -5,10 +5,14 @@ import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import {
   Alert,
+  FormControl,
   FormControlLabel,
   IconButton,
+  InputLabel,
+  MenuItem,
   Radio,
   RadioGroup,
+  Select,
   Snackbar,
 } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -19,6 +23,7 @@ const initialState = {
     {
       id: 1,
       question_text: "",
+      ans_type: "",
     },
   ],
 };
@@ -31,6 +36,17 @@ export default function PostPersonalityQuestions() {
     open: false,
     msg: "",
   });
+
+  const type = [
+    "extroversion",
+    "introversion",
+    "sensing",
+    "intuitive",
+    "thinking",
+    "feeling",
+    "judging",
+    "perceiving",
+  ];
 
   // const router = useRouter();
 
@@ -61,7 +77,7 @@ export default function PostPersonalityQuestions() {
           {
             id: id++,
             question_text: "",
-            answer: "",
+            ans_type: "",
           },
         ],
       };
@@ -97,10 +113,12 @@ export default function PostPersonalityQuestions() {
     setData(copy);
   }
 
-  function updateAnswer(e, i) {
+  function updateType(e, i) {
     const copy = JSON.parse(JSON.stringify(data));
 
-    copy.questions[i].answer = e.target.value;
+    console.log(copy.questions[i]);
+
+    copy.questions[i].ans_type = e.target.value;
 
     setData(copy);
   }
@@ -145,7 +163,7 @@ export default function PostPersonalityQuestions() {
         <div className="space-y-2">
           {data.questions.map((question, i) => {
             return (
-              <div key={question.id} className="py-5">
+              <div key={question.id} className="py-5 space-y-2">
                 <div className="flex">
                   <input
                     onChange={(e) => updateQuestion(e, i)}
@@ -167,6 +185,23 @@ export default function PostPersonalityQuestions() {
                     </>
                   )}
                 </div>
+
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Type</InputLabel>
+                  <Select
+                    size="small"
+                    variant="standard"
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={data.questions[i].ans_type}
+                    label="Type"
+                    onChange={(e) => updateType(e, i)}
+                  >
+                    {type.map((t) => {
+                      return <MenuItem value={t}>{t}</MenuItem>;
+                    })}
+                  </Select>
+                </FormControl>
               </div>
             );
           })}

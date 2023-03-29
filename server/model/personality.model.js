@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
       },
+      ans_type: String,
     },
   ],
 });
