@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Navapp from "./Navapp";
 
 const JobList = (props) => {
   const [state, setState] = useState([]);
@@ -18,33 +19,36 @@ const JobList = (props) => {
   }, []);
 
   return (
-    <div className="p-5 bg-gray-200 h-screen ">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-700 ">
-          Active Jobs Available Now
-        </h1>
-      </div>
+    <>
+      <Navapp colo="bg-blue-500" />
+      <div className="p-5 bg-gray-200 h-screen ">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-700 ">
+            Active Jobs Available Now
+          </h1>
+        </div>
 
-      <div className="my-5 space-y-4">
-        {state.map((job) => {
-          return (
-            <Card
-              key={job._id}
-              id={job._id}
-              title={job.title}
-              description={job.description}
-              level={job.level}
-              job_type={job.job_type}
-              skills={job.skills}
-              salary_per_anum={job.salary_per_anum}
-              experience={job.experience}
-              required_employees={job.required_employees}
-              mode={props.mode}
-            />
-          );
-        })}
+        <div className="my-5 space-y-4">
+          {state.map((job) => {
+            return (
+              <Card
+                key={job._id}
+                id={job._id}
+                title={job.title}
+                description={job.description}
+                level={job.level}
+                job_type={job.job_type}
+                skills={job.skills}
+                salary_per_anum={job.salary_per_anum}
+                experience={job.experience}
+                required_employees={job.required_employees}
+                mode={props.mode}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
